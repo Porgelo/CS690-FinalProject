@@ -90,7 +90,7 @@ public class ConsoleUI
                         "view stops by date",
                         "view reservation details",
                         "view notes",
-                        "search trip information"
+                        "search trip information",
                         "exit"
                     }));
 
