@@ -4,7 +4,7 @@ public class Reporter
 {
     public static void ViewSummary(Trip trip)
     {
-        Console.WriteLine("Trip Summary");
+        Console.WriteLine("=== Trip Summary ===");
 
         Console.WriteLine("Trip: " + trip.Name);
         Console.WriteLine("Dates: " + trip.StartDate + " - " + trip.EndDate);
@@ -18,7 +18,7 @@ public class Reporter
 
     public static void ViewStops(Trip trip)
     {
-        Console.WriteLine("\n[bold]Stops:[/]");
+        Console.WriteLine("\nStops:");
 
         if (trip.Stops.Count == 0)
         {

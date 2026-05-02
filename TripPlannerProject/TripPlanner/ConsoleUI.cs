@@ -87,14 +87,21 @@ public class ConsoleUI
                     .AddChoices(new[]
                     {
                         "view saved trip data",
+                        "view stops by date",
                         "view reservation details",
                         "view notes",
+                        "search trip information"
                         "exit"
                     }));
 
             if (command == "view saved trip data")
             {
                 dataManager.DisplaySavedTripData();
+            }
+            else if (command == "view stops by date")
+            {
+                string date = AskForInput("Enter date: ");
+                dataManager.DisplayStopsByDate(date);
             }
             else if (command == "view reservation details")
             {
@@ -103,6 +110,11 @@ public class ConsoleUI
             else if (command == "view notes")
             {
                 dataManager.DisplayAllNotes();
+            }
+            else if (command == "search trip information")
+            {
+                string keyword = AskForInput("Enter search keyword: ");
+                dataManager.SearchTripData(keyword);
             }
 
         } while (command != "exit");

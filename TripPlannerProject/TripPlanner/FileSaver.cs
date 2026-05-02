@@ -37,7 +37,7 @@ public class FileSaver
             return;
         }
 
-        Console.WriteLine("Viewing Saved Trip Data");
+        Console.WriteLine("===== Viewing Saved Trip Data =====");
 
         foreach (string line in lines)
         {
@@ -65,6 +65,36 @@ public class FileSaver
                 Console.WriteLine("\nNote");
                 Console.WriteLine("- " + parts[2]);
             }
+        }
+
+        Console.WriteLine();
+    }
+
+    public void DisplayStopsByDate(string targetDate)
+    {
+        string[] lines = File.ReadAllLines(fileName);
+        bool found = false;
+
+        Console.WriteLine("\n=== Stops for " + targetDate + " ===");
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(":");
+
+            if (parts[0] == "STOP" && parts[3] == targetDate)
+            {
+                found = true;
+
+                Console.WriteLine(
+                    "- " + parts[3] + " : " +
+                    parts[2] + " - " +
+                    parts[4]);
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No stops found for this date.");
         }
 
         Console.WriteLine();
@@ -122,6 +152,30 @@ public class FileSaver
         if (!found)
         {
             Console.WriteLine("No notes found.");
+        }
+
+        Console.WriteLine();
+    }
+
+    public void SearchTripData(string keyword)
+    {
+        string[] lines = File.ReadAllLines(fileName);
+        bool found = false;
+
+        Console.WriteLine("\n=== Search Results ===");
+
+        foreach (string line in lines)
+        {
+            if (line.Contains(keyword))
+            {
+                found = true;
+                Console.WriteLine("- " + line);
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No matching results found.");
         }
 
         Console.WriteLine();

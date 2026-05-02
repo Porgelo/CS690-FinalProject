@@ -56,6 +56,11 @@ public class DataManager
         fileSaver.DisplaySavedTripData();
     }
 
+    public void DisplayStopsByDate(string date)
+    {
+        fileSaver.DisplayStopsByDate(date);
+    }
+
     public void DisplayAllReservations()
     {
         fileSaver.DisplayAllReservations();
@@ -64,5 +69,10 @@ public class DataManager
     public void DisplayAllNotes()
     {
         fileSaver.DisplayAllNotes();
+    }
+    
+    public void SearchTripData(string keyword)
+    {
+        fileSaver.SearchTripData(keyword);
     }
 }
